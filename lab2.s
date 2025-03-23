@@ -143,9 +143,9 @@ _start:
     mov   r11, [rsi + r10*8]
 
     ; Смотрим sortDirection (+1 => ascending, иначе => descending)
-    mov   al, [sortDirection]
-    cmp   al, 1
-    jne   .descending
+    movzx  r15, byte [sortDirection]  ; r15 ← (расширяемый) байт
+    cmp    r15, 1
+    jne    .descending
 
     ; -------- Возрастание --------
     cmp   r11, rbx
