@@ -13,7 +13,12 @@ section .data
     ; Выбор направления сортировки:
     ;   1 => по возрастанию
     ;  -1 => по убыванию (или любое != 1)
-    sortDirection db 1
+
+
+%ifndef SORT_DIRECTION_VALUE
+    %define SORT_DIRECTION_VALUE 1
+%endif
+sortDirection db SORT_DIRECTION_VALUE
 
 section .bss
 
